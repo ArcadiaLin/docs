@@ -124,16 +124,16 @@ Files in `/memories/` can be accessed from any thread:
 
 :::python
 ```python
-import uuid
+from langchain_core.utils.uuid import uuid7
 
 # Thread 1: Write to long-term memory
-config1 = {"configurable": {"thread_id": str(uuid.uuid4())}}
+config1 = {"configurable": {"thread_id": str(uuid7())}}
 agent.invoke({
     "messages": [{"role": "user", "content": "Save my preferences to /memories/preferences.txt"}]
 }, config=config1)
 
 # Thread 2: Read from long-term memory (different conversation!)
-config2 = {"configurable": {"thread_id": str(uuid.uuid4())}}
+config2 = {"configurable": {"thread_id": str(uuid7())}}
 agent.invoke({
     "messages": [{"role": "user", "content": "What are my preferences?"}]
 }, config=config2)
@@ -143,16 +143,16 @@ agent.invoke({
 
 :::js
 ```typescript
-import { v4 as uuidv4 } from "uuid";
+import { v7 as uuid7 } from "uuid";
 
 // Thread 1: Write to long-term memory
-const config1 = { configurable: { thread_id: uuidv4() } };
+const config1 = { configurable: { thread_id: uuid7() } };
 await agent.invoke({
   messages: [{ role: "user", content: "Save my preferences to /memories/preferences.txt" }],
 }, config1);
 
 // Thread 2: Read from long-term memory (different conversation!)
-const config2 = { configurable: { thread_id: uuidv4() } };
+const config2 = { configurable: { thread_id: uuid7() } };
 await agent.invoke({
   messages: [{ role: "user", content: "What are my preferences?" }],
 }, config2);
@@ -574,3 +574,4 @@ Implement periodic cleanup of outdated persistent files to keep storage manageab
 - **Development**: Use `InMemoryStore` for quick iteration
 - **Production**: Use `PostgresStore` or other persistent stores
 - **Multi-tenant**: Set a [namespace factory](/oss/deepagents/backends#namespace-factories) on `StoreBackend` to isolate data per user (for example, `namespace=lambda ctx: (ctx.runtime.context.user_id,)`)
+`)

@@ -678,7 +678,7 @@ Test the agent with a question that requires skill-specific knowledge:
 import uuid
 
 # Configuration for this conversation thread
-thread_id = str(uuid.uuid4())
+thread_id = str(uuid7())
 config = {"configurable": {"thread_id": thread_id}}
 
 # Ask for a SQL query
@@ -1314,7 +1314,7 @@ agent = create_agent(
 # Example usage
 if __name__ == "__main__":
     # Configuration for this conversation thread
-    thread_id = str(uuid.uuid4())
+    thread_id = str(uuid7())
     config = {"configurable": {"thread_id": thread_id}}
 
     # Ask for a SQL query
