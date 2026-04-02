@@ -816,4 +816,3 @@ app.get("/ws", upgradeWebSocket(async () => {
 Each stage processes events independently and concurrently: audio transcription begins as soon as audio arrives, the agent starts reasoning as soon as a transcript is available, and speech synthesis begins as soon as agent text is generated. This architecture can achieve sub-700ms latency to support natural conversation.
 
 For more on building agents with LangChain, see the [Agents guide](/oss/langchain/agents).
-.

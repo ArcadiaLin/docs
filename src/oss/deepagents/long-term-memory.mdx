@@ -574,4 +574,3 @@ Implement periodic cleanup of outdated persistent files to keep storage manageab
 - **Development**: Use `InMemoryStore` for quick iteration
 - **Production**: Use `PostgresStore` or other persistent stores
 - **Multi-tenant**: Set a [namespace factory](/oss/deepagents/backends#namespace-factories) on `StoreBackend` to isolate data per user (for example, `namespace=lambda ctx: (ctx.runtime.context.user_id,)`)
-`)
